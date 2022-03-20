@@ -1,9 +1,18 @@
-import './App.css';
+import React from 'react';
+import './styles/sass/index.scss'
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import MainContainer from './components/MainContainer';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div className="app">
+      <Navbar />
+      <section>
+        <Header />
+        <MainContainer />
+      </section>
+     
     </div>
   );
 }

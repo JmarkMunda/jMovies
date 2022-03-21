@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/sass/index.scss'
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import MainContainer from './components/MainContainer';
+import MovieList from './components/MovieList';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <section>
         <Header />
-        <MainContainer />
+        <MovieList />
       </section>
      
     </div>

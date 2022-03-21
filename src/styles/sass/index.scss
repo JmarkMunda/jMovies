@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Heebo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Josefin+Sans&display=swap");
 
 @import "./abstracts/variables";
 @import "./layouts";
@@ -12,9 +12,4 @@
   font-family: "Heebo", sans-serif;
   font-size: 17px;
   color: $primary-color;
-
-  section {
-    width: 100%;
-    height: 100vh;
-  }
 }

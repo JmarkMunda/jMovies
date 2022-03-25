@@ -2,20 +2,27 @@ import React, { createContext, useReducer } from 'react'
 
 export const MovieContext = createContext();
 
-const initialState = () => {
-    movieDetails: []
+const initialState = {
+    popularMovies: [
+        {
+            id: 1,
+            title: "Spongebob",
+            genre: "Sci-fi",
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nihil dolores provident facilis! Cupiditate excepturi iste sed dignissimos fugiat quasi!"
+        }
+    ]
 }
 
 const movieReducer = (state, action) => {
     
 }
 
-export default MovieProvider = ({ children }) => {
+export const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(movieReducer, initialState);
 
     return ( 
         <MovieContext.Provider value={
-            {movieDetails: state.movieDetails}
+            {popularMovies: state.popularMovies}
         }>
         {children}
         </MovieContext.Provider>

@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/sass/index.scss'
 import {AnimatePresence} from 'framer-motion'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { MovieProvider } from './components/context/MovieContext';
 
 import Navbar from "./components/Navbar";
 import Home from './components/context/Home/Home';
@@ -24,21 +23,19 @@ const animations = {
 
 function App() {
   return (
-    <MovieProvider>
-      <div className="app">
-        <BrowserRouter>
-          <Navbar />
-          <AnimatePresence>
-            <Routes>
-              <Route index path="/" element={<Home animations={animations} />} />
-              <Route path="latest" element={<Latest animations={animations} />} />
-              <Route path="upcoming" element={<Upcoming animations={animations} />} />
-              <Route path="toprated" element={<TopRated animations={animations} />} />
-            </Routes>
-          </AnimatePresence>
-        </BrowserRouter>
-      </div>
-    </MovieProvider>
+    <div className="app">
+      <BrowserRouter>
+        <Navbar />
+        <AnimatePresence>
+          <Routes>
+            <Route index path="/" element={<Home animations={animations} />} />
+            <Route path="latest" element={<Latest animations={animations} />} />
+            <Route path="upcoming" element={<Upcoming animations={animations} />} />
+            <Route path="toprated" element={<TopRated animations={animations} />} />
+          </Routes>
+        </AnimatePresence>
+      </BrowserRouter>
+    </div>
   
   );
 }

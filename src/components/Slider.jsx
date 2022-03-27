@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BsTrophy } from "react-icons/bs";
 import MovieSample from "../assets/samplemovie.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -47,9 +48,12 @@ const Slider = () => {
               alt="TRAILER"
             />
             <div className="trailer-details">
-              <h1>{getTrends != 0 && getTrends[0].title}</h1>
               <div>
-                <p>Sci-fi</p>
+                <h1>{getTrends != 0 && getTrends[0].title}</h1>
+              </div>
+              <div>
+                <BsTrophy />
+                <p>{getTrends != 0 && getTrends[0].vote_average}</p>
                 <img
                   src={
                     getTrends != 0
@@ -74,7 +78,8 @@ const Slider = () => {
             <div className="trailer-details">
               <h1>{getTrends != 0 && getTrends[1].title}</h1>
               <div>
-                <p>Sci-fi</p>
+                <BsTrophy />
+                <p>{getTrends != 0 && getTrends[1].vote_average}</p>
                 <img
                   src={
                     getTrends != 0
@@ -99,7 +104,8 @@ const Slider = () => {
             <div className="trailer-details">
               <h1>{getTrends != 0 && getTrends[2].title}</h1>
               <div>
-                <p>Sci-fi</p>
+                <BsTrophy />
+                <p>{getTrends != 0 && getTrends[2].vote_average}</p>
                 <img
                   src={
                     getTrends != 0

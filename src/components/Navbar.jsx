@@ -14,9 +14,9 @@ const Navbar = () => {
         <ul>
           <li>
             <NavLink
-              to="latest"
+              to="trending"
               className={({ isActive }) => (isActive ? "activeNav" : "")}>
-              Latest
+              Trending
             </NavLink>
           </li>
           <li>

@@ -23,7 +23,7 @@ const MovieList = () => {
   // Search for movies
   const searchMovie = async (e) => {
     if (e.key == "Enter") {
-      await axios
+      axios
         .get(SEARCH_API)
         .then((response) => setSearch(response.data.results))
         .catch((err) => console.log("Error occured:" + err.message));
@@ -38,14 +38,12 @@ const MovieList = () => {
         setSearchInput={setSearchInput}
         searchMovie={searchMovie}
       />
-      <div className="movies-container">
-        <div className="movies-grid">
-          {/* Render movies */}
-          {search !== 0
-            ? search.map((movie) => <Movies key={movie.id} movie={movie} />)
-            : ""}
-          {search == 0 && <h1>No results</h1>}
-        </div>
+      <div className="movies-grid">
+        {/* Render movies */}
+        {search !== 0
+          ? search.map((movie) => <Movies key={movie.id} movie={movie} />)
+          : ""}
+        {search == 0 && <h1>No results</h1>}
       </div>
     </div>
   );

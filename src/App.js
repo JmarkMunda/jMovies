@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from "./components/Navbar";
 import Home from './components/context/Home/Home';
-import Latest from "./components/Latest";
+import Trending from './components/Trending';
 import Upcoming from "./components/Upcoming";
 import TopRated from "./components/TopRated";
 
@@ -29,7 +29,7 @@ function App() {
         <AnimatePresence>
           <Routes>
             <Route index path="/" element={<Home animations={animations} />} />
-            <Route path="latest" element={<Latest animations={animations} />} />
+            <Route path="trending" element={<Trending animations={animations} />} />
             <Route path="upcoming" element={<Upcoming animations={animations} />} />
             <Route path="toprated" element={<TopRated animations={animations} />} />
           </Routes>

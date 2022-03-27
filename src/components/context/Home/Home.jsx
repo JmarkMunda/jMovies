@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Header";
 import MovieList from "../../MovieList";
+import Footer from "../../Footer";
 
 import { motion } from "framer-motion";
 
@@ -15,6 +16,7 @@ const Home = ({ animations }) => {
       <div>
         <Header />
         <MovieList />
+        <Footer />
       </div>
     </motion.div>
   );

@@ -5,9 +5,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from "./components/Navbar";
 import Home from './components/context/Home/Home';
-import Trending from './components/Trending';
-import Upcoming from "./components/Upcoming";
-import TopRated from "./components/TopRated";
+import Upcoming from './Pages/Upcoming';
+import Trending from './Pages/Trending';
+import TopRated from './Pages/TopRated';
+import NotFound from './components/NotFound';
 
 
 const pageTransition = {
@@ -22,6 +23,8 @@ const animations = {
 };
 
 function App() {
+
+
   return (
     <div className="app">
       <BrowserRouter>
@@ -32,6 +35,7 @@ function App() {
             <Route path="trending" element={<Trending animations={animations} />} />
             <Route path="upcoming" element={<Upcoming animations={animations} />} />
             <Route path="toprated" element={<TopRated animations={animations} />} />
+            <Route path='*' element={<NotFound animations={animations}/>} />
           </Routes>
         </AnimatePresence>
       </BrowserRouter>

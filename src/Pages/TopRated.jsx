@@ -1,7 +1,7 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import Movies from "./Movies";
+import Movies from "../components/Movies";
 
 const TopRated = ({ animations }) => {
   const [topRated, setTopRated] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import Movies from "./Movies";
+import Movies from "../components/Movies";
 
 const Trending = ({ animations }) => {
   const [trending, setTrending] = useState([]);

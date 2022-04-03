@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import Movies from "./Movies";
+import Movies from "../components/Movies";
 
 const Upcoming = ({ animations }) => {
   const [upcoming, setUpcoming] = useState([]);
@@ -18,6 +18,8 @@ const Upcoming = ({ animations }) => {
       console.log(error);
     }
   }, []);
+
+  console.log(upcoming);
 
   return (
     <motion.div

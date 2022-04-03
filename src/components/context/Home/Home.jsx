@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../Header";
 import MovieList from "../../MovieList";
 import Footer from "../../Footer";
@@ -16,6 +16,7 @@ const Home = ({ animations }) => {
       <div>
         <Header />
         <MovieList />
+
         <Footer />
       </div>
     </motion.div>

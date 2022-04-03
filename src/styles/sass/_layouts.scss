@@ -9,17 +9,12 @@ nav {
   background: linear-gradient($base-color, rgba(0, 0, 0, 0.2));
   width: 100%;
   height: auto;
-  @include mixins.flex(center, center);
+  padding: 10px 80px;
+  @include mixins.flex(space-between, center);
 
-  .nav-container {
-    margin: 10px auto;
-    @include mixins.flex(space-evenly, center);
-    width: 80%;
-    height: auto;
-  }
   .logo {
     cursor: pointer;
-    padding: 10px 0px;
+    margin-left: 40px;
     font-size: 20px;
     background: linear-gradient(to right, $primary-color, $secondary-color);
     -webkit-background-clip: text;
@@ -27,19 +22,30 @@ nav {
     font-family: "Josefin Sans", sans-serif;
   }
 
+  .mobile-menu {
+    display: none;
+  }
+
+  .nav-container {
+    margin: 0px auto;
+    @include mixins.flex(space-evenly, center);
+    width: 80%;
+    height: auto;
+  }
   ul {
     @include mixins.flex(flex-end, center);
     width: 100%;
 
     li {
       list-style: none;
-      padding: 0 40px;
+      padding: 10px 40px;
     }
 
     a {
       text-decoration: none;
       color: $primary-color;
     }
+
     .activeNav {
       position: relative;
 
@@ -53,6 +59,20 @@ nav {
         background-color: $secondary-color;
       }
     }
+  }
+}
+.notfound-container {
+  @include mixins.flex(center, center);
+  flex-direction: column;
+  padding: 40px;
+  height: 100vh;
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-style: italic;
   }
 }
 
@@ -269,6 +289,103 @@ footer {
 }
 
 /* -------------------
+        Modal
+---------------------*/
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include mixins.flex(center, center);
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+
+  .modal-wrapper {
+    width: clamp(80%, 50vw, 60%);
+    word-wrap: break-word;
+    height: 80vh;
+    padding: 20px;
+    background-color: $base-color;
+    box-shadow: 0px 8px 4px 10px rgb(0, 0, 0);
+    color: #fff;
+    z-index: 1000;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: rgb(24, 24, 24);
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient($secondary-color, $base-color);
+      border: 0.5px solid #000;
+    }
+  
+    /* --------------
+      Movies Details
+    ----------------*/
+    .modal-header {
+      margin: 25px 0px;
+      width: 100%;
+      height: auto;
+      @include mixins.flex(space-between, center);
+
+      .genre-list {
+        @include mixins.flex(space-evenly, center);
+        flex-wrap: wrap;
+        margin: 10px 0px;
+      }
+    }
+
+    span {
+      color: rgb(165, 165, 165);
+      text-transform: uppercase;
+    }
+
+   
+    .status,
+    .released-date,
+    .overview,
+    .homepage {
+      @include mixins.flex(space-between, center);
+      color: rgb(199, 199, 199);
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      overflow-wrap: anywhere;
+    }
+  
+    .status,
+    .released-date,
+    .overview,
+    .homepage {
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgb(65, 65, 65);
+    }
+  
+    .genre {
+      margin: 0px 5px 15px;
+      padding: 5px 20px;
+      border: 2px solid rgb(199, 199, 199);
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .production-companies {
+      padding-top: 40px;
+      text-align: center;
+    }
+  }
+}
+
+.inactive-modal {
+  display: none;
+}
+
+/* -------------------
     Media Queries 
 ---------------------*/
 @media only screen and (max-width: 500px) {
@@ -277,17 +394,12 @@ footer {
     padding: 60px;
 
     h1 {
-      font-size: 17px;
+      font-size: 20px;
     }
   }
-
   .trailer-details {
     flex-direction: column;
     padding: 10px;
-
-    h1 {
-      font-size: 17px;
-    }
   }
   .movie {
     margin: 20px 0px;
@@ -295,25 +407,55 @@ footer {
   .movies-grid {
     display: block;
   }
+  .modal-header {
+    flex-direction: column;
+  }
 }
 @media only screen and (max-width: 750px) {
   body {
     h1 {
-      font-size: 24px;
+      font-size: 2rem;
     }
-    nav ul {
+    nav {
+      flex-direction: column;
+      vertical-align: middle;
+      padding: 15px 0px;
+  
+      .logo {
+        margin-left: 0;
+      }
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: block !important;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  
+    .nav-container ul {
+      @include mixins.flex(space-evenly, center);
+      flex-direction: column;
+      height: 50vh;
+    }
+    
+    .inactive-menu {
       display: none;
     }
+
     .movies-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 }
+
 @media only screen and (max-width: 1200px) {
   .movies-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media only screen and (min-width: 1600px) {
   .main-container,
   .container {

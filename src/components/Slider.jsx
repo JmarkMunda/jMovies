@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BsTrophy } from "react-icons/bs";
-import MovieSample from "../assets/samplemovie.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,11 +17,17 @@ const Slider = () => {
   const getTrends = trends.slice(0, 3);
 
   useEffect(() => {
-    axios
-      .get(TRENDING_API)
-      .then((res) => setTrends(res.data.results))
-      .catch((err) => console.log(err));
+    fetchTrendsSlider();
   }, []);
+
+  const fetchTrendsSlider = async () => {
+    try {
+      const data = await axios.get(TRENDING_API);
+      setTrends(data.data.results);
+    } catch (error) {
+      console.log("Slider", error);
+    }
+  };
 
   return (
     <>

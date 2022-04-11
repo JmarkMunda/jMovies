@@ -1,10 +1,13 @@
-# JMovies Trailer App
+# JMovies Trailer App :movie_camera:
+
+### :notebook_with_decorative_cover: Description:
 
 An application where you can view your favorite movies and accessible to cross devices.
 
-**Movie Description**
-**Movie Trailers**
-**Responsive Design**
+<p>**Trailers**</p>
+<p>**Anime**</p>
+<p>**Movies**</p>
+<p>**Responsive Design**</p>
 
 ## :computer: Languages/Frameworks:
 <p align="center">
@@ -12,11 +15,13 @@ An application where you can view your favorite movies and accessible to cross d
     <a href="https://sass-lang.com/" target="_blank"> <img src="https://img.icons8.com/color/48/000000/sass.png"/> </a> 
 </p>
 
-### :notebook_with_decorative_cover: Description:
--  **React JS**
--  🚀 Hooks
--  🚀 fetch API's
--  🚀 .env
+## React JS
+-  Hooks
+-  fetch API's
+-  .env
+
+## Sass
+- Basic Styling
 
 ## Libraries used:
 -  🚀 Axios

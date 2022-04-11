@@ -4,10 +4,10 @@
 
 An application where you can view your favorite movies and accessible to cross devices.
 
-<p>**Trailers**</p>
-<p>**Anime**</p>
-<p>**Movies**</p>
-<p>**Responsive Design**</p>
+**Trailers** |
+**Anime** |
+**Movies** |
+**Responsive Design**
 
 ## :computer: Languages/Frameworks:
 <p align="center">

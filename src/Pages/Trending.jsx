@@ -8,7 +8,7 @@ const Trending = ({ animations }) => {
   const [trending, setTrending] = useState([]);
   const TRENDING_API = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}`;
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchTrending();
     return () => {
       setTrending([]);

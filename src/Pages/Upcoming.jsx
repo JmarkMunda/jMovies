@@ -11,20 +11,19 @@ const Upcoming = ({ animations }) => {
   const UPCOMING_API = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}`;
 
   useEffect(() => {
+    const fetchUpcoming = async () => {
+      try {
+        let response = await axios.get(UPCOMING_API);
+        setUpcoming(response.data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchUpcoming();
     return () => {
       setUpcoming([]);
     };
   }, []);
-
-  const fetchUpcoming = async () => {
-    try {
-      let response = await axios.get(UPCOMING_API);
-      setUpcoming(response.data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <motion.div

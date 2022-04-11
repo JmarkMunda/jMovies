@@ -10,20 +10,19 @@ const TopRated = ({ animations }) => {
   const TOPRATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`;
 
   useEffect(() => {
+    const fetchTopRated = async () => {
+      try {
+        let response = await axios.get(TOPRATED_API);
+        setTopRated(response.data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchTopRated();
     return () => {
       setTopRated([]);
     };
   }, []);
-
-  const fetchTopRated = async () => {
-    try {
-      let response = await axios.get(TOPRATED_API);
-      setTopRated(response.data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <motion.div

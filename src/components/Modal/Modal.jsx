@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
-import MovieDetails from "../MovieDetails";
 
 const Modal = ({ isOpen, setIsOpen, movie }) => {
   const [fullMovieDetails, setFullMovieDetails] = useState({});
-  const [casts, setCasts] = useState([]);
 
   const DETAILS_API = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      try {
+        const data = await axios.get(DETAILS_API);
+        const details = await data.data;
+        setFullMovieDetails(details);
+      } catch (err) {
+        console.log("Fetch Details", err);
+      }
+    };
     fetchDetails();
     return () => {
       setFullMovieDetails({});
     };
   }, []);
-
-  const fetchDetails = async () => {
-    try {
-      const data = await axios.get(DETAILS_API);
-      const details = await data.data;
-      setFullMovieDetails(details);
-    } catch (err) {
-      console.log("Fetch Details", err);
-    }
-  };
 
   const renderTrailer = () => {
     const trailer = fullMovieDetails.videos.results.find(

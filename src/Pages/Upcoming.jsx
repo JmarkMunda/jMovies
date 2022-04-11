@@ -2,24 +2,29 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Movies from "../components/Movies";
+import Footer from "../components/Footer";
 
 const Upcoming = ({ animations }) => {
   const [upcoming, setUpcoming] = useState([]);
 
   // API's
-  const API_KEY = "bd52be40d5d29ef7005892ef4125384e";
-  const UPCOMING_API = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
+  const UPCOMING_API = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}`;
 
-  useEffect(async () => {
+  useEffect(() => {
+    fetchUpcoming();
+    return () => {
+      setUpcoming([]);
+    };
+  }, []);
+
+  const fetchUpcoming = async () => {
     try {
       let response = await axios.get(UPCOMING_API);
       setUpcoming(response.data.results);
     } catch (error) {
       console.log(error);
     }
-  }, []);
-
-  console.log(upcoming);
+  };
 
   return (
     <motion.div
@@ -37,6 +42,7 @@ const Upcoming = ({ animations }) => {
             : ""}
         </div>
       </div>
+      <Footer />
     </motion.div>
   );
 };

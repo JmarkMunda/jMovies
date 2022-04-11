@@ -2,20 +2,27 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Movies from "../components/Movies";
+import Footer from "../components/Footer";
 
 const Trending = ({ animations }) => {
   const [trending, setTrending] = useState([]);
-  const TRENDING_API =
-    "https://api.themoviedb.org/3/trending/all/week?api_key=bd52be40d5d29ef7005892ef4125384e";
+  const TRENDING_API = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}`;
 
   useEffect(async () => {
+    fetchTrending();
+    return () => {
+      setTrending([]);
+    };
+  }, []);
+
+  const fetchTrending = async () => {
     try {
       let response = await axios.get(TRENDING_API);
       setTrending(response.data.results);
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  };
 
   return (
     <motion.div
@@ -32,6 +39,7 @@ const Trending = ({ animations }) => {
             : ""}
         </div>
       </div>
+      <Footer />
     </motion.div>
   );
 };

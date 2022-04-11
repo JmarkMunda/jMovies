@@ -12,7 +12,7 @@ import axios from "axios";
 const Slider = () => {
   const [trends, setTrends] = useState([]);
 
-  const TRENDING_API = `https://api.themoviedb.org/3//trending/movie/day?api_key=bd52be40d5d29ef7005892ef4125384e`;
+  const TRENDING_API = `https://api.themoviedb.org/3//trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`;
 
   const getTrends = trends.slice(0, 3);
 

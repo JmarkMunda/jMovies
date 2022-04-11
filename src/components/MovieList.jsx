@@ -8,13 +8,15 @@ const MovieList = () => {
   const [search, setSearch] = useState([]);
 
   // API's
-  const API_KEY = "bd52be40d5d29ef7005892ef4125384e";
-  const POPULAR_API = `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=${API_KEY}`;
-  const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query='${searchInput}'`;
+  const POPULAR_API = `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`;
+  const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query='${searchInput}'`;
 
   // Initial list of movies
   useEffect(() => {
     fetchPopular();
+    return () => {
+      setSearch([]);
+    };
   }, []);
 
   const fetchPopular = async () => {

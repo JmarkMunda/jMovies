@@ -7,12 +7,10 @@ const Modal = ({ isOpen, setIsOpen, movie }) => {
   const [fullMovieDetails, setFullMovieDetails] = useState({});
   const [casts, setCasts] = useState([]);
 
-  const DETAILS_API = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=bd52be40d5d29ef7005892ef4125384e&append_to_response=videos`;
-  // const CREDITS_API = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=bd52be40d5d29ef7005892ef4125384e`;
+  const DETAILS_API = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
 
   useEffect(() => {
     fetchDetails();
-    // fetchCredits();
     return () => {
       setFullMovieDetails({});
     };

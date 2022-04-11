@@ -271,13 +271,36 @@ header {
 }
 // Footer
 footer {
-  @include mixins.flex(center, center);
-  flex-direction: column;
+  @include mixins.flex(space-around, center);
   text-align: center;
   width: 100%;
   height: auto;
   padding: 60px;
-  background-color: rgb(32, 32, 32);
+  background-image: linear-gradient($base-color, rgba(0, 0, 0, 0.8));
+
+  p, li {
+    font-size: 0.8rem;
+    color: rgb(99, 99, 99);
+    padding-bottom: 15px;
+  }
+
+  li {
+    cursor: pointer;
+    list-style: none;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  .footer-icons {
+    cursor: pointer;
+    margin: 15px 10px;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
 }
 
 // Container

@@ -4,7 +4,7 @@ import {AnimatePresence} from 'framer-motion'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from "./components/Navbar";
-import Home from './components/context/Home/Home';
+import Home from './components/Home/Home';
 import Upcoming from './Pages/Upcoming';
 import Trending from './Pages/Trending';
 import TopRated from './Pages/TopRated';
@@ -23,8 +23,6 @@ const animations = {
 };
 
 function App() {
-
-
   return (
     <div className="app">
       <BrowserRouter>

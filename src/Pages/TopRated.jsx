@@ -1,22 +1,29 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Movies from "../components/Movies";
 
 const TopRated = ({ animations }) => {
   const [topRated, setTopRated] = useState([]);
 
-  const TOPRATED_API =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=bd52be40d5d29ef7005892ef4125384e";
+  const TOPRATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`;
 
-  useEffect(async () => {
+  useEffect(() => {
+    fetchTopRated();
+    return () => {
+      setTopRated([]);
+    };
+  }, []);
+
+  const fetchTopRated = async () => {
     try {
       let response = await axios.get(TOPRATED_API);
       setTopRated(response.data.results);
     } catch (error) {
       console.log(error);
     }
-  });
+  };
 
   return (
     <motion.div
@@ -33,6 +40,7 @@ const TopRated = ({ animations }) => {
             : ""}
         </div>
       </div>
+      <Footer />
     </motion.div>
   );
 };

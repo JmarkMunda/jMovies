@@ -8,7 +8,6 @@ const Movies = ({ movie }) => {
 
   const clickedMovie = () => {
     setIsOpen(true);
-    console.log(movie.id);
   };
 
   return (

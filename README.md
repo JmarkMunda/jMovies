@@ -18,6 +18,7 @@ An application where you can view your favorite movies and accessible to cross d
 
 ## React JS
 -  Hooks
+-  Routing
 -  fetch API's
 -  .env
 
@@ -30,6 +31,7 @@ An application where you can view your favorite movies and accessible to cross d
 -  🚀 Framer motion
 -  🚀 react-icons
 -  🚀 react-youtube
+-  🚀 react-router-dom
 
 ## API
 <a href="https://developers.themoviedb.org/3/getting-started/introduction">The Movie Database API</a>

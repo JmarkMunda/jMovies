@@ -9,20 +9,19 @@ const Trending = ({ animations }) => {
   const TRENDING_API = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}`;
 
   useEffect(() => {
+    const fetchTrending = async () => {
+      try {
+        let response = await axios.get(TRENDING_API);
+        setTrending(response.data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchTrending();
     return () => {
       setTrending([]);
     };
   }, []);
-
-  const fetchTrending = async () => {
-    try {
-      let response = await axios.get(TRENDING_API);
-      setTrending(response.data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <motion.div

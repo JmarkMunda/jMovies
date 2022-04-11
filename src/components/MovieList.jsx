@@ -13,20 +13,16 @@ const MovieList = () => {
 
   // Initial list of movies
   useEffect(() => {
-    fetchPopular();
-    return () => {
-      setSearch([]);
+    const fetchPopular = async () => {
+      await axios
+        .get(POPULAR_API)
+        .then((response) => setSearch(response.data.results))
+        .catch((error) => console.log("Popular", error));
     };
+    fetchPopular();
   }, []);
 
-  const fetchPopular = async () => {
-    await axios
-      .get(POPULAR_API)
-      .then((response) => setSearch(response.data.results))
-      .catch((error) => console.log("Popular", error));
-  };
-
-  // Search for movies
+  // Search for movies event handler
   const searchMovie = async (e) => {
     if (e.key == "Enter") {
       axios

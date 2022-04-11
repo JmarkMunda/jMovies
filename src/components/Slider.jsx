@@ -17,17 +17,16 @@ const Slider = () => {
   const getTrends = trends.slice(0, 3);
 
   useEffect(() => {
+    const fetchTrendsSlider = async () => {
+      try {
+        const data = await axios.get(TRENDING_API);
+        setTrends(data.data.results);
+      } catch (error) {
+        console.log("Slider", error);
+      }
+    };
     fetchTrendsSlider();
   }, []);
-
-  const fetchTrendsSlider = async () => {
-    try {
-      const data = await axios.get(TRENDING_API);
-      setTrends(data.data.results);
-    } catch (error) {
-      console.log("Slider", error);
-    }
-  };
 
   return (
     <>

@@ -8,7 +8,7 @@ const MovieList = () => {
   const [search, setSearch] = useState([]);
 
   // API's
-  const POPULAR_API = `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`;
+  const POPULAR_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`;
   const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query='${searchInput}'`;
 
   // Initial list of movies

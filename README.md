@@ -1,9 +1,7 @@
 # JMovies Trailer App :movie_camera:
-<a href="https://jmovies-trailers.netlify.app/">View website</a> :earth_asia:
+👉 <a href="https://jmovies-trailers.netlify.app/">View website</a> :earth_asia:
 
-### :notebook_with_decorative_cover: Description:
-
-An application where you can view your favorite movies and accessible to cross devices.
+📌 **Description:** *An application where you can view your favorite movie trailers and accessible to cross devices*.
 
 **Trailers** |
 **Anime** |
